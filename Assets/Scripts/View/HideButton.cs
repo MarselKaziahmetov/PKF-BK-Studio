@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class HideButton : MonoBehaviour
 {
     [SerializeField] private RectTransform panelTransform;
+    [SerializeField] private float offset;
     
     private Button hideButton;
     private bool isPanelHided;
@@ -28,8 +29,8 @@ public class HideButton : MonoBehaviour
         isPanelHided = !isPanelHided;
 
         if (isPanelHided)
-            panelTransform.DOAnchorPosX(-200f, 1.0f).SetEase(Ease.OutQuint);
+            panelTransform.DOAnchorPosX(-offset, 1.0f).SetEase(Ease.OutQuint);
         else
-            panelTransform.DOAnchorPosX(200f, 1.0f).SetEase(Ease.OutQuint);
+            panelTransform.DOAnchorPosX(offset, 1.0f).SetEase(Ease.OutQuint);
     }
 }
