@@ -1,5 +1,3 @@
-using UnityEngine;
-
 /// <summary>
 /// Статический класс, для хранения Enum'ов
 /// </summary>

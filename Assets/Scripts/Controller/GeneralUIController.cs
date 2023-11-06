@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Отвечает за общие ui элементы, расположенные в Header
+/// </summary>
 public class GeneralUIController : MonoBehaviour
 {
     [SerializeField] private Toggle generalCheckBoxToggle;
@@ -18,6 +19,10 @@ public class GeneralUIController : MonoBehaviour
         opacitySlider.onValueChanged.AddListener(OnOpacitySliderChanged);
     }
 
+    /// <summary>
+    /// При нажатии на главный CheckBox
+    /// </summary>
+    /// <param name="isOn">состояние Toggle</param>
     private void OnGenerealCheckBoxToggled(bool isOn)
     {
         foreach (ListElementEntity element in elementsStorage.elementsList)
@@ -26,6 +31,10 @@ public class GeneralUIController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// При нажатии на главный Visibility
+    /// </summary>
+    /// <param name="isOn"></param>
     private void OnGenerealVisibilityToggled(bool isOn)
     {
         foreach (ListElementEntity element in elementsStorage.elementsList)
@@ -34,6 +43,10 @@ public class GeneralUIController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// При изменении значения в Slider прозрачности
+    /// </summary>
+    /// <param name="value"></param>
     private void OnOpacitySliderChanged(float value)
     {
         foreach (ListElementEntity element in elementsStorage.elementsList)
@@ -44,6 +57,4 @@ public class GeneralUIController : MonoBehaviour
             }
         }
     }
-
-
 }

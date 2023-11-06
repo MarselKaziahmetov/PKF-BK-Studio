@@ -12,11 +12,9 @@ public class ObjectsStorage : MonoBehaviour
     {
         foreach (Transform child in transform)
         {
-            // Проверяем, есть ли на дочернем объекте компонент ObjectEntity
             ObjectEntity objectChild = child.GetComponent<ObjectEntity>();
             if (objectChild != null)
             {
-                // Если компонент ObjectEntity присутствует, добавляем его в список
                 objectsList.Add(objectChild);
             }
         }

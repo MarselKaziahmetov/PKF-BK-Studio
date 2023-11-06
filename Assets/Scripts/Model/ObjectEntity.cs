@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Xml.Serialization;
 using UnityEngine;
 using static Enums;
 
+/// <summary>
+/// Представляет сущность объекта
+/// </summary>
 public class ObjectEntity : MonoBehaviour
 {
     [SerializeField] private ObjectColor objectColor;
@@ -20,21 +20,37 @@ public class ObjectEntity : MonoBehaviour
         ChangeColor(objectColor);
     }
 
+    /// <summary>
+    /// Возвращает значение прозрачности объекта
+    /// </summary>
+    /// <returns></returns>
     public float GetTransparencyValue()
     {
         return objectMaterial.color.a;
     }
 
+    /// <summary>
+    /// Возвращает цвет объекта
+    /// </summary>
+    /// <returns></returns>
     public ObjectColor GetColor()
     {
         return objectColor;
     }
 
+    /// <summary>
+    /// Возвращает имя объекта
+    /// </summary>
+    /// <returns></returns>
     public string GetName()
     {
         return ObjectName;
     }
 
+    /// <summary>
+    /// Менят прозрачность объекта
+    /// </summary>
+    /// <param name="transparencyValue"></param>
     public void ChangeTransparancy(float transparencyValue)
     {
         Color newColor = objectMaterial.color;
@@ -43,6 +59,10 @@ public class ObjectEntity : MonoBehaviour
         objectMaterial.color = newColor;
     }
 
+    /// <summary>
+    /// Меняет цвет объекта
+    /// </summary>
+    /// <param name="newColor"></param>
     public void ChangeColor(ObjectColor newColor)
     {
         objectColor = newColor;

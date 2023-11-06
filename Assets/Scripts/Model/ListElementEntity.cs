@@ -3,6 +3,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using static Enums;
 
+/// <summary>
+/// Представляет сущность элемента списка
+/// </summary>
 public class ListElementEntity : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI labelText;
@@ -20,28 +23,47 @@ public class ListElementEntity : MonoBehaviour
         InitializeElementView();
     }
 
+    /// <summary>
+    /// Возвращает состояние чекбокса элемента
+    /// </summary>
+    /// <returns></returns>
     public bool GetCheckBoxState()
     {
         return checkBoxToggle.isOn;
     }
 
+    /// <summary>
+    /// Переключает состояние чекбокса элемента
+    /// </summary>
+    /// <param name="isOnState"></param>
     public void SwitchCheckBoxToggle(bool isOnState)
     {
         checkBoxToggle.isOn = isOnState;
     }
 
+    /// <summary>
+    /// Меняет видимость привязанного объекта и переключает VisibilityToggle
+    /// </summary>
+    /// <param name="isOnState"></param>
     public void SwitchVisibilityToggle(bool isOnState)
     {
         visibilityToggle.isOn = isOnState;
         SwitchVisibility(isOnState);
     }
 
+    /// <summary>
+    /// Инициализирует элемент 
+    /// </summary>
     private void InitializeElementView()
     {
         DisplayElementName(linkedEntity.GetName());
         DisplayElementColor(linkedEntity.GetColor());
     }
 
+    /// <summary>
+    /// При изменении цвета объекта
+    /// </summary>
+    /// <param name="value"></param>
     private void OnColorChanged(int value)
     {
         switch (value)
@@ -69,11 +91,19 @@ public class ListElementEntity : MonoBehaviour
         }
     }
 
+    /// <summary>
+    ///  Отображает в элементе списка имя прикрепленного объекта. Срабатыает при инициализации 
+    /// </summary>
+    /// <param name="name"></param>
     private void DisplayElementName(string name)
     {
         labelText.text = name;
     }
 
+    /// <summary>
+    /// Отображает в элементе списка цвет прикрепленного объекта. Срабатыает при инициализации 
+    /// </summary>
+    /// <param name="color"></param>
     private void DisplayElementColor(ObjectColor color)
     {
         switch (color)
@@ -101,6 +131,10 @@ public class ListElementEntity : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Менят видимость прикрепленного объекта
+    /// </summary>
+    /// <param name="value"></param>
     private void SwitchVisibility(bool value)
     {
         if (value)

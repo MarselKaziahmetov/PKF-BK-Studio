@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Отвечает за управление камерой
+/// </summary>
 public class CameraMovementController : MonoBehaviour
 {
     public float moveSpeed;
@@ -14,6 +15,7 @@ public class CameraMovementController : MonoBehaviour
 
     void Update()
     {
+        //Считываем направление движения
         Vector3 moveDirection = Vector3.zero;
         if (Input.GetKey(KeyCode.W)) moveDirection += transform.forward;
         if (Input.GetKey(KeyCode.S)) moveDirection -= transform.forward;

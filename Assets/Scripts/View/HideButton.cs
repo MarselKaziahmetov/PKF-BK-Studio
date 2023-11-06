@@ -20,6 +20,9 @@ public class HideButton : MonoBehaviour
         hideButton.onClick.AddListener(HideOrShowPanel);
     }
 
+    /// <summary>
+    /// Прячет или показывает панель при нажатии на кнопке
+    /// </summary>
     private void HideOrShowPanel()
     {
         isPanelHided = !isPanelHided;
